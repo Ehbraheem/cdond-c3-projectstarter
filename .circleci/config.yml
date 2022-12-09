@@ -35,7 +35,7 @@ version: 2.1
 jobs:
   build-frontend:
     docker:
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       - checkout
       - restore_cache:
@@ -52,7 +52,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       - checkout
       - restore_cache:
@@ -70,7 +70,7 @@ jobs:
   test-frontend:
     docker:
       # Docker image here
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       # Checkout code from git
       - checkout
@@ -88,7 +88,7 @@ jobs:
   test-backend:
     docker:
       # Docker image here
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       # Checkout code from git
       - checkout
@@ -106,7 +106,7 @@ jobs:
   scan-frontend:
     docker:
       # Docker image here
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       # Checkout code from git
       - checkout
@@ -124,7 +124,7 @@ jobs:
   scan-backend:
     docker:
       # Docker image here
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       # Checkout code from git
       - checkout
@@ -142,7 +142,7 @@ jobs:
   deploy-infrastructure:
     docker:
       # Docker image here that supports AWS CLI
-      - image: cimg/aws:latest
+      - image: cimg/aws
     steps:
       # Checkout code from git
       - run:
@@ -197,7 +197,7 @@ jobs:
   run-migrations:
     docker:
       # Docker image here that supports NodeJS
-      - image: cimg/node:latest
+      - image: cimg/node:current
     steps:
       # Checkout code from git
       - run:
@@ -215,7 +215,7 @@ jobs:
   deploy-frontend:
     docker:
       # Docker image here that supports AWS CLI
-      - image: cimg/aws:latest
+      - image: cimg/aws
     steps:
       # Checkout code from git
       - run:
@@ -279,7 +279,7 @@ jobs:
   cloudfront-update:
     docker:
       # Docker image here that supports AWS CLI
-      - image: cimg/aws:latest
+      - image: cimg/aws
     steps:
       # Checkout code from git
       - run:
@@ -295,7 +295,7 @@ jobs:
   cleanup:
     docker:
       # Docker image here
-      - image: cimg/aws:latest
+      - image: cimg/aws
     steps:
       # Checkout code from git
       - run:
