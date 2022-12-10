@@ -35,15 +35,15 @@
 #   register: server_setup
 #   changed_when: false
 
-- name: "Health Check"
-  uri:
-    url: "http://0.0.0.0:3030/api/status"
-    method: GET
-    status_code: 200
-  register: health_check
-  until: health_check.status == 200
-  retries: 10
-  delay: 10
+# - name: "Health Check"
+#   uri:
+#     url: "http://0.0.0.0:3030/api/status"
+#     method: GET
+#     status_code: 200
+#   register: health_check
+#   until: health_check.status == 200
+#   retries: 10
+#   delay: 10
 
 - name: "Display output"
   debug:
