@@ -404,10 +404,14 @@ jobs:
                                   --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicIp`].OutputValue' \
                                   --output text \
               )
+            echo "BACKEND_IP = ${BACKEND_IP}"
+            # Save the IP address to a file
+            echo "${BACKEND_IP}" > backend_ip.txt
       - run:
           name: Backend smoke test.
           command: |
             # your code here
+            export BACKEND_IP=$(cat backend_ip.txt)
             echo "BACKEND_IP = ${BACKEND_IP}"
             export API_URL="http://${BACKEND_IP}:3030"
             echo "${API_URL}"
