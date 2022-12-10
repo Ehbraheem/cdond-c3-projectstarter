@@ -34,7 +34,7 @@
 
 - name: "Health Check"
   uri:
-    url: "http://{{ hostvars['localhost']['ec2_public_ip'] }}:3030/api/status"
+    url: "http://0.0.0.0:3030/api/status"
     method: GET
     status_code: 200
   register: health_check
