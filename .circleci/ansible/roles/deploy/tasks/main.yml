@@ -19,3 +19,25 @@
     export NODE_ENV=production
     pm2 stop default
     pm2 start npm -- start
+
+- name: "Check Application"
+  shell: |
+    pm2 status
+  register: server_setup
+  changed_when: false
+
+- name: "Show Application Logs"
+  shell: |
+    pm2 logs
+  register: server_setup
+  changed_when: false
+
+- name: "Health Check"
+  uri:
+    url: "http://{{ hostvars['localhost']['ec2_public_ip'] }}:3030/api/status"
+    method: GET
+    status_code: 200
+  register: health_check
+  until: health_check.status == 200
+  retries: 10
+  delay: 10
