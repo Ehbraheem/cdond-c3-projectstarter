@@ -247,22 +247,31 @@ jobs:
   configure-infrastructure:
     docker:
       # Docker image here that supports Ansible
-      - image: alpine:latest
+      - image: cimg/aws:2022.11-ansible
     steps:
       # Checkout code from git
+      - checkout
       # Add ssh keys with fingerprint
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints:
+           - "1d:a8:c1:5e:a1:fa:b8:88:e4:62:3d:e1:de:38:4e:3d"
       # attach workspace
-      - run:
+      - attach_workspace:
+          at: ~/
+      - run: # This is just to show the version of Ansible. Ansible is already installed in the image
           name: Install dependencies
           command: |
-            # Your code here
-            exit 1
+            ansible --version
       - run:
           name: Configure server
           command: |
             # Your code here
-            exit 1
+            cd .circleci/ansible
+            ansible-playbook -i inventory.txt configure-server.yml
       # Here's where you will add some code to rollback on failure
+      - destroy-environment:
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   run-migrations:
     docker:
