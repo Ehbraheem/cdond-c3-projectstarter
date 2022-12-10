@@ -15,7 +15,7 @@ commands:
         default: basic_fail_1
       mentions:
         type: string
-        default: "<@Bolatan Ibrahim>, @here, <@Yazid Isah>"
+        default: "<@U04D8Q1USHX>, <@U04D9FDB2Q3>"
     steps:
       - slack/notify:
           channel: << parameters.channel >>
