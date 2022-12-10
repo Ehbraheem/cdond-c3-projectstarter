@@ -233,7 +233,7 @@ jobs:
             echo "[host]" >> .circleci/ansible/inventory.txt
             aws cloudformation describe-stacks --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7} \
               --region us-east-1 \
-              --query 'Stacks[0].Outputs[?OutputKey==`PublicIP`].OutputValue' \
+              --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicIp`].OutputValue' \
               --output text >> .circleci/ansible/inventory.txt
       - persist_to_workspace:
           root: ~/
@@ -321,7 +321,7 @@ jobs:
             # your code here
             export BACKEND_IP=$(aws cloudformation describe-stacks --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7} \
                                   --region us-east-1 \
-                                  --query 'Stacks[0].Outputs[?OutputKey==`PublicIP`].OutputValue' \
+                                  --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicDns`].OutputValue' \
                                   --output text \
               )
             export API_URL="http://${BACKEND_IP}:3030"
