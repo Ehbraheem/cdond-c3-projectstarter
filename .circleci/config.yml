@@ -6,9 +6,27 @@ commands:
     steps:
       - run:
           name: Terminate job
+          when: on_fail
           command: |
             exit 1
-      - slack/notify
+      - slack/notify:
+          channel: "#03-cloud-devops-eng"
+          event: fail
+          template: basic_fail_1
+          mentions:
+            - "<@Bolatan Ibrahim>"
+            - "@here"
+          include_job_number_field: true
+          include_workflow_id_field: true
+          include_commit_field: false
+          include_project_field: false
+          include_username_field: false
+          include_cause_field: false
+          include_who_field: false
+          include_any_job_field: false
+          include_any_workflow_field: false
+          include_any_field: false
+          fail_only: true
 
   # destroy-environment:
   #   description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
