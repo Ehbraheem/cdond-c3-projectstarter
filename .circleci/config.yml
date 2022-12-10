@@ -401,13 +401,14 @@ jobs:
             # your code here
             export BACKEND_IP=$(aws cloudformation describe-stacks --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7} \
                                   --region us-east-1 \
-                                  --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicDns`].OutputValue' \
+                                  --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicIp`].OutputValue' \
                                   --output text \
               )
       - run:
           name: Backend smoke test.
           command: |
             # your code here
+            echo "BACKEND_IP = ${BACKEND_IP}"
             export API_URL="http://${BACKEND_IP}:3030"
             echo "${API_URL}"
             if curl "${API_URL}/api/status" | grep "ok"
