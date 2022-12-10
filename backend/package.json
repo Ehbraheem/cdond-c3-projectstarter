@@ -5,7 +5,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "audit": "npm audit --json | audit-filter --nsp-config .nsprc --audit=- | audit-filter --nsp-config .nsprc --audit=- --exclude-advisory 1556",
+    "audit": "npm audit --audit-level=critical --production",
     "build": "tsc",
     "ci": "npm install && npm run lint",
     "format": "prettier --write \"src/**/*.ts\"",
