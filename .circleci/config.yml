@@ -43,8 +43,7 @@ jobs:
       - run:
           name: Build front-end
           command: |
-            cd frontend
-            npm install
+            npm ci
             npm run build
       - save_cache:
           paths: [frontend/node_modules]
@@ -60,8 +59,7 @@ jobs:
       - run:
           name: Back-end build
           command: |
-            cd backend
-            npm install
+            npm ci
             npm run build
       - save_cache:
           paths: [backend/node_modules]
@@ -81,8 +79,7 @@ jobs:
       - run:
           name: Test front-end
           command: |
-            cd frontend
-            npm install
+            npm ci
             npm run test
 
   test-backend:
@@ -99,8 +96,7 @@ jobs:
       - run:
           name: Test back-end
           command: |
-            cd backend
-            npm install
+            npm ci
             npm run test
 
   scan-frontend:
@@ -117,9 +113,8 @@ jobs:
       - run:
           name: Scan front-end
           command: |
-            cd frontend
-            npm install
-            npm run lint
+            npm ci
+            npm run audit
 
   scan-backend:
     docker:
@@ -135,9 +130,8 @@ jobs:
       - run:
           name: Scan back-end
           command: |
-            cd backend
-            npm install
-            npm run lint
+            npm ci
+            npm run audit
 
   deploy-infrastructure:
     docker:

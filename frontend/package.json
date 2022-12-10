@@ -5,6 +5,8 @@
   "description": "A frontend boilerplate with React, Redux and Typescript",
   "main": "index.js",
   "scripts": {
+    "audit": "npm audit --json | audit-filter --nsp-config .nsprc --audit=- | audit-filter --nsp-config .nsprc --audit=- --exclude-advisory 1556",
+    "ci": "cd backend && npm install && npm run lint",
     "test": "jest",
     "test:watch": "jest --watch",
     "pretest:cov": "npm run lint",
