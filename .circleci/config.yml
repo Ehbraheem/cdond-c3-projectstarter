@@ -43,7 +43,7 @@ commands:
 jobs:
   build-frontend:
     docker:
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       - checkout
       - restore_cache:
@@ -60,7 +60,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       - checkout
       - restore_cache:
@@ -78,7 +78,7 @@ jobs:
   test-frontend:
     docker:
       # Docker image here
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - checkout
@@ -96,7 +96,7 @@ jobs:
   test-backend:
     docker:
       # Docker image here
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - checkout
@@ -114,7 +114,7 @@ jobs:
   scan-frontend:
     docker:
       # Docker image here
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - checkout
@@ -133,7 +133,7 @@ jobs:
   scan-backend:
     docker:
       # Docker image here
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - checkout
@@ -207,7 +207,7 @@ jobs:
   run-migrations:
     docker:
       # Docker image here that supports NodeJS
-      - image: cimg/node:16.17.1
+      - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - run:
