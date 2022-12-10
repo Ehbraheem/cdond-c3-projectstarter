@@ -21,11 +21,14 @@ describe('Check if employee exists', () => {
 
       const params = {
         employeeId: 100,
-        isActive: false
+        isActive: false,
       };
 
       // Act
-      const activateEmployee = new ActivateEmployee(params.employeeId, params.isActive);
+      const activateEmployee = new ActivateEmployee(
+        params.employeeId,
+        params.isActive,
+      );
       const result = await employeeValidator.validate(activateEmployee);
 
       // Assert

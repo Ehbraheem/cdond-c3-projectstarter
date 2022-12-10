@@ -8,11 +8,14 @@ describe('Update Employee Validator', () => {
       const updateEmployeeValidator = new CheckUpdateSalaryPropertiesValue();
       const params = {
         employeeId: 10,
-        salary: 10
+        salary: 10,
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeSalary(params.employeeId, params.salary);
+      const updateEmployee = new UpdateEmployeeSalary(
+        params.employeeId,
+        params.salary,
+      );
       const result = await updateEmployeeValidator.validate(updateEmployee);
 
       // Assert

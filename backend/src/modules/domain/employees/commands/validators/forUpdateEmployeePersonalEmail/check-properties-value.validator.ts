@@ -9,7 +9,10 @@ export class CheckUpdatePersonalEmailPropertiesValue extends JoiCommandValidator
   getSchema(command: UpdateEmployeePersonalEmail) {
     return joi.object({
       employeeId: joi.number().required(),
-      personalEmail: joi.string().allow('').optional(),
+      personalEmail: joi
+        .string()
+        .allow('')
+        .optional(),
     });
   }
 }

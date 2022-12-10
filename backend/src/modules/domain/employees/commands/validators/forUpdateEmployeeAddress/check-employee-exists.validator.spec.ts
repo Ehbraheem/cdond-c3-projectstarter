@@ -28,8 +28,13 @@ describe('Check if employee exists', () => {
       };
 
       // Act
-      const updateEmployeeAddress = new UpdateEmployeeAddress(params.employeeId, params.address,
-        params.country, params.region, params.city);
+      const updateEmployeeAddress = new UpdateEmployeeAddress(
+        params.employeeId,
+        params.address,
+        params.country,
+        params.region,
+        params.city,
+      );
       const result = await employeeValidator.validate(updateEmployeeAddress);
 
       // Assert

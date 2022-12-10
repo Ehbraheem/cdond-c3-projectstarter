@@ -23,7 +23,10 @@ describe('Employee Company Email Updater', () => {
         companyEmail: 'jimmyramos@acklenavenue.com',
       };
 
-      const updateEmployee = new UpdateEmployeeCompanyEmail(params.employeeId, params.companyEmail);
+      const updateEmployee = new UpdateEmployeeCompanyEmail(
+        params.employeeId,
+        params.companyEmail,
+      );
 
       // Act
       await handler.handle(updateEmployee);

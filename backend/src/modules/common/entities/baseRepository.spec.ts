@@ -57,7 +57,7 @@ describe('BaseRepository', () => {
     });
 
     it('should dispatch events from entity', async () => {
-      testEntity.apply(new class implements DomainEvent {}());
+      testEntity.apply(new (class implements DomainEvent {})());
       await testRepo.save(testEntity);
 
       expect(mockEventDispatcher.publish).toBeCalled();

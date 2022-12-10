@@ -21,11 +21,14 @@ describe('Check if employee exists', () => {
 
       const params = {
         employeeId: 100,
-        companyEmail: 'jimmyramos@acklenavenue.com'
+        companyEmail: 'jimmyramos@acklenavenue.com',
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeCompanyEmail(params.employeeId,params.companyEmail);
+      const updateEmployee = new UpdateEmployeeCompanyEmail(
+        params.employeeId,
+        params.companyEmail,
+      );
       const result = await employeeValidator.validate(updateEmployee);
 
       // Assert

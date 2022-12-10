@@ -12,7 +12,10 @@ describe('Update Employee Validator', () => {
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeCompanyEmail(params.employeeId, params.companyEmail);
+      const updateEmployee = new UpdateEmployeeCompanyEmail(
+        params.employeeId,
+        params.companyEmail,
+      );
       const result = await updateEmployeeValidator.validate(updateEmployee);
 
       // Assert

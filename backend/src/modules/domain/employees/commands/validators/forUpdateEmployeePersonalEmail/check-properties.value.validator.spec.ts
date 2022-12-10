@@ -9,10 +9,13 @@ describe('Update Employee Validator', () => {
       const params = {
         employeeId: 10,
         personalEmail: 'jimmybanegas93@gmail.com',
-        };
+      };
 
       // Act
-      const updateEmployee = new UpdateEmployeePersonalEmail(params.employeeId, params.personalEmail);
+      const updateEmployee = new UpdateEmployeePersonalEmail(
+        params.employeeId,
+        params.personalEmail,
+      );
       const result = await updateEmployeeValidator.validate(updateEmployee);
 
       // Assert

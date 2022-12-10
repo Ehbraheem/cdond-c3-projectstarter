@@ -9,7 +9,10 @@ export class CheckUpdateTagsPropertiesValue extends JoiCommandValidator<
   getSchema(command: UpdateEmployeeTags) {
     return joi.object({
       employeeId: joi.number().required(),
-      tags: joi.string().allow('').optional(),
+      tags: joi
+        .string()
+        .allow('')
+        .optional(),
     });
   }
 }

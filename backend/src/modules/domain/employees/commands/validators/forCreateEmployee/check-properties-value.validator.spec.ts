@@ -32,12 +32,29 @@ describe('Create Employee Validator', () => {
       };
 
       // Act
-      const createEmployee = new CreateEmployee(params.firstName, params.middleName,
-        params.lastName, params.secondLastName, params.displayName, params.email,
-        params.personalEmail, params.birthdate, params.startDate, params.address,
-        params.phoneNumber, params.bankName, params.accountNumber, params.gender,
-        params.tags, params.country, params.region, params.city, params.salary,
-        params.effectiveDate, params.salaryType);
+      const createEmployee = new CreateEmployee(
+        params.firstName,
+        params.middleName,
+        params.lastName,
+        params.secondLastName,
+        params.displayName,
+        params.email,
+        params.personalEmail,
+        params.birthdate,
+        params.startDate,
+        params.address,
+        params.phoneNumber,
+        params.bankName,
+        params.accountNumber,
+        params.gender,
+        params.tags,
+        params.country,
+        params.region,
+        params.city,
+        params.salary,
+        params.effectiveDate,
+        params.salaryType,
+      );
       const result = await createEmployeeValidator.validate(createEmployee);
 
       console.log(result.errors);

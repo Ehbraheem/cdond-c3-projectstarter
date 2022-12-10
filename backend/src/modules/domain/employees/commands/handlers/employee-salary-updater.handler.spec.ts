@@ -20,10 +20,13 @@ describe('Employee Salary Updater', () => {
 
       const params = {
         employeeId: 100,
-        salary: 10
+        salary: 10,
       };
 
-      const updateEmployee = new UpdateEmployeeSalary(params.employeeId, params.salary);
+      const updateEmployee = new UpdateEmployeeSalary(
+        params.employeeId,
+        params.salary,
+      );
 
       // Act
       await handler.handle(updateEmployee);
