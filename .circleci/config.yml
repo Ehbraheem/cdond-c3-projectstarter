@@ -106,7 +106,7 @@ jobs:
       - notification:
           event: pass
           template: basic_success_1
-          mentions: "<@Bolatan Ibrahim>, @here, <@Yazid Isah>"
+          mentions: "<@U04D8Q1USHX>, <@U04D9FDB2Q3>"
 
   test-frontend:
     docker:
