@@ -345,20 +345,44 @@ jobs:
   deploy-backend:
     docker:
       # Docker image here that supports Ansible
-      - image: alpine:latest
+      - image: cimg/aws:2022.11
     steps:
       # Checkout code from git
+      - checkout
       # Add ssh keys with fingerprint
+      - add_ssh_keys:
+          # You can get this ID in the section where you registered the SSH Key
+          fingerprints:
+           - "1d:a8:c1:5e:a1:fa:b8:88:e4:62:3d:e1:de:38:4e:3d"
       # attach workspace
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install dependencies
           command: |
             # your code here
+            cd backend
+            npm run ci
       - run:
           name: Deploy backend
           command: |
             # your code here
+            cd backend
+            npm run build
+            # NODE_ENV=production npm install --production
+
+            cd ..
+            # Zip the directory
+            tar -C backend -czvf artifact.tar.gz .
+
+            cd .circleci/ansible
+            echo "Contents  of the inventory.txt file is -------"
+            cat inventory.txt
+            ansible-playbook -i inventory.txt deploy-backend.yml
+
       # Here's where you will add some code to rollback on failure
+      - destroy-environment:
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   smoke-test:
     docker:

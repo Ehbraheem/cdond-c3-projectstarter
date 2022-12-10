@@ -1,0 +1,21 @@
+- name: "Add Application Source"
+  unarchive:
+    src: ../../../../../artifact.tar.gz
+    dest: /home/ubuntu
+
+- name: "Install Dependencies"
+  shell: |
+    cd /home/ubuntu/artifact
+
+    export NODE_ENV=production
+    # Install dependencies
+    npm install --production
+
+- name: "Start Application"
+  shell: |
+    cd /home/ubuntu/artifact
+
+    # Start application
+    export NODE_ENV=production
+    pm2 stop default
+    pm2 start npm -- start
