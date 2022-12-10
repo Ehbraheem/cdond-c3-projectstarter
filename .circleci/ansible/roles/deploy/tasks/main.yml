@@ -5,7 +5,8 @@
 
 - name: "Install Dependencies"
   shell: |
-    cd /home/ubuntu
+    ls -la
+    cd /home/ubuntu/artifact
 
     export NODE_ENV=production
     # Install dependencies
