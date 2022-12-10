@@ -6,7 +6,7 @@ commands:
     parameters:
       channel:
         type: string
-        default: "#03-cloud-devops-eng"
+        default: "03-cloud-devops-eng"
       event:
         type: string
         default: fail
