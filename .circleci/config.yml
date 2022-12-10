@@ -273,7 +273,7 @@ jobs:
   run-migrations:
     docker:
       # Docker image here that supports NodeJS
-      - image: cimg/node:13.14.0
+      - image: cimg/aws:2022.11
     steps:
       # Checkout code from git
       - checkout
@@ -295,8 +295,6 @@ jobs:
                 # curl -H "Content-Type: text/plain" -H "token: 7933fe63-4687-4fa1-8426-aa25aa1730ec" --request PUT --data "1" https://api.memstash.io/values/migration_${CIRCLE_WORKFLOW_ID:0:7}
                 # If you are using kvdb.io, generate the bucket ID "Af7hn2aPN5kPEE9mtuorgH" in your local terminal first
                 curl https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
-            else
-              exit 1
             fi
 
      # Here's where you will add some code to rollback on failure
