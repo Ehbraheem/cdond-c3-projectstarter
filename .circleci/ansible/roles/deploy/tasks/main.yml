@@ -21,7 +21,7 @@
     # Start application
     # export NODE_ENV=production
     pm2 stop default
-    pm2 start npm -- start
+    pm2 start
 
 - name: "Check Application"
   shell: |
@@ -48,3 +48,4 @@
 - name: "Display output"
   debug:
     msg: "{{ server_setup.stdout }}"
+    var: server_setup.stdout_lines
