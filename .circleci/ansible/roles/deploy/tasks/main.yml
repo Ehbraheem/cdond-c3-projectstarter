@@ -44,4 +44,4 @@
 
 - name: "Display output"
   debug:
-    msg: "{{ server_setup.stdout }}
+    msg: "{{ server_setup.stdout }}"
