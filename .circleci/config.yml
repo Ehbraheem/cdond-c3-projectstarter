@@ -284,6 +284,7 @@ jobs:
             cd backend
             npm run ci
             npm run migrations > migrations_dump.txt
+            cat migrations_dump.txt
       - run:
           name: Send migration results to kvdb.io OR memstash.io
           command: |
@@ -294,6 +295,8 @@ jobs:
                 # curl -H "Content-Type: text/plain" -H "token: 7933fe63-4687-4fa1-8426-aa25aa1730ec" --request PUT --data "1" https://api.memstash.io/values/migration_${CIRCLE_WORKFLOW_ID:0:7}
                 # If you are using kvdb.io, generate the bucket ID "Af7hn2aPN5kPEE9mtuorgH" in your local terminal first
                 curl https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+            else
+              return 1
             fi
 
      # Here's where you will add some code to rollback on failure
