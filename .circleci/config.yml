@@ -8,6 +8,7 @@ commands:
           name: Terminate job
           command: |
             exit 1
+      - slack/notify
 
   # destroy-environment:
   #   description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
@@ -39,6 +40,8 @@ commands:
     #         #  Add revert code here. You can find this in the Getting Started section.
     #           exit 1
     #         fi
+orbs:
+  slack: circleci/slack@4.1
 
 jobs:
   build-frontend:
