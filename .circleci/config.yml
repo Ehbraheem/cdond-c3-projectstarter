@@ -63,7 +63,7 @@ commands:
     #           exit 1
     #         fi
 orbs:
-  slack: circleci/slack@4.1
+  slack: circleci/slack@4.9.3
 
 jobs:
   build-frontend:
