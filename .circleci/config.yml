@@ -305,7 +305,7 @@ jobs:
   deploy-frontend:
     docker:
       # Docker image here that supports AWS CLI
-      - image: cimg/aws:2022.11-node
+      - image: cimg/aws:2022.11
     steps:
       # Checkout code from git
       - checkout
