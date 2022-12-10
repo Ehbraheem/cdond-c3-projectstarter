@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "audit": "npm audit --json | audit-filter --nsp-config .nsprc --audit=- | audit-filter --nsp-config .nsprc --audit=- --exclude-advisory 1556",
-    "ci": "cd ./frontend && npm install && npm run lint",
+    "ci": "npm install && npm run lint",
     "test": "jest",
     "test:watch": "jest --watch",
     "pretest:cov": "npm run lint",
