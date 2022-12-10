@@ -229,8 +229,6 @@ jobs:
           name: Add back-end ip to ansible inventory
           command: |
             # Your code here
-            touch .circleci/ansible/inventory.txt
-            echo "[host]" >> .circleci/ansible/inventory.txt
             aws cloudformation describe-stacks --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7} \
               --region us-east-1 \
               --query 'Stacks[0].Outputs[?OutputKey==`InstancePublicIp`].OutputValue' \
