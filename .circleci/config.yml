@@ -103,10 +103,10 @@ jobs:
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build-{{ checksum "backend/package-lock.json" }}
-      - notification:
-          event: pass
-          template: basic_success_1
-          mentions: "<@U04D8Q1USHX>, <@U04D9FDB2Q3>"
+      # - notification:
+      #     event: pass
+      #     template: basic_success_1
+      #     mentions: "<@U04D8Q1USHX>, <@U04D9FDB2Q3>"
 
   test-frontend:
     docker:
