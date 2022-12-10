@@ -1,21 +1,4 @@
 ---
-- name: "update apt packages."
-  become: yes
-  apt:
-    update_cache: yes
-
-- name: "upgrade packages"
-  become: yes
-  apt:
-    upgrade: yes
-
-- name: "Install Python 3"
-  become: yes
-  apt:
-    name: python3
-    state: latest
-    update_cache: yes
-
 - name: "Install nodejs and npm"
   become: yes
   apt:
