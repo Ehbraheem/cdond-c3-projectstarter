@@ -1,7 +1,7 @@
 - name: "Add Application Source"
   unarchive:
     src: ~/project/artifact.tar.gz
-    dest: /home/ubuntu/artifact
+    dest: /home/ubuntu
 
 - name: "Install Dependencies"
   shell: |
