@@ -308,6 +308,7 @@ jobs:
       - image: cimg/aws:2022.11-node
     steps:
       # Checkout code from git
+      - checkout
       - run:
           name: Install dependencies
           command: |
