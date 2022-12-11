@@ -287,10 +287,15 @@ jobs:
     docker:
       # Docker image here that supports NodeJS
       - image: cimg/node:13.14.0
-      - image: cimg/aws:2022.11
     steps:
       # Checkout code from git
       - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            # Your code here
+            sudo apt update -y
+            sudo apt install awscli -y
       - run:
           name: Run migrations
           command: |
