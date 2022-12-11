@@ -325,6 +325,9 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
+      # attach workspace
+      - attach_workspace:
+          at: ~/
       - run:
           name: Install dependencies
           command: |
