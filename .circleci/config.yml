@@ -75,10 +75,12 @@ commands:
           # Add when this will run
           when: on_fail
           command: |
+            echo "Reverting migrations"
+            echo "<< parameters.workflow_id >>"
             # Example: Memstash.io
             # SUCCESS=$(curl -H "token: e52b52de-ee26-41a5-86e8-e8dcc3d995a5" --request GET https://api.memstash.io/values/migration_<< parameters.workflow_id >>)
             # Example: kvdb.io
-            SUCCESS=$(curl --insecure  https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_<< parameters.workflow_id >>)
+            SUCCESS=$(curl --insecure  "https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_<< parameters.workflow_id >>")
             # Logic for reverting the database state
             if (( $SUCCESS == 1 ));
             then
@@ -501,9 +503,9 @@ workflows:
           requires: [build-frontend]
       - deploy-infrastructure:
           requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-          # filters:
-          #   branches:
-          #     only: [test-feature-branch]
+          filters:
+            branches:
+              only: [feature/*]
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
