@@ -61,7 +61,6 @@ commands:
             aws cloudformation delete-stack --stack-name "udapeople-frontend-<< parameters.workflow_id >>"
       - notification
 
-
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
     parameters:
@@ -88,7 +87,7 @@ commands:
             #  Add revert code here. You can find this in the Getting Started section.
               cd ~/project/backend
               npm run ci
-              npm run migration:revert
+              npm run migrations:revert
             fi
 orbs:
   slack: circleci/slack@4.9.3
@@ -129,7 +128,7 @@ jobs:
             npm run ci
             npm run build
             # Revert the last migration
-            npm run migration:revert
+            npm run migrations:revert
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build-{{ checksum "backend/package-lock.json" }}
