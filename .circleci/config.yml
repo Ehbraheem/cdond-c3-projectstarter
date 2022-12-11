@@ -427,7 +427,7 @@ jobs:
             echo "${API_URL}"
             if curl "${API_URL}/api/status" | grep "ok"
             then
-                echo "Backend smoke test passed" && exit 1
+                echo "Backend smoke test passed"
             else
                 echo "Backend smoke test failed" && exit 1
             fi
@@ -440,7 +440,7 @@ jobs:
             if curl -s ${URL} | grep "Welcome"
             then
                 # Change this to 0 after the job fails
-                echo "Frontend smoke test passed"
+                echo "Frontend smoke test passed" && exit 1
             else
                 echo "Frontend smoke test failed" && exit 1
             fi
