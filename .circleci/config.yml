@@ -516,6 +516,7 @@ workflows:
             branches:
               only:
                 - 'feature/*'
+                - feature/cicd
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
