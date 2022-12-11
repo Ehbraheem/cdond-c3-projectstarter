@@ -79,7 +79,9 @@ commands:
             # Example: Memstash.io
             # SUCCESS=$(curl -H "token: e52b52de-ee26-41a5-86e8-e8dcc3d995a5" --request GET https://api.memstash.io/values/migration_<< parameters.workflow_id >>)
             # Example: kvdb.io
-            SUCCESS=$(curl --insecure --request GET  "https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_<< parameters.workflow_id >>")
+            MIGRATION_ID="migration_<< parameters.workflow_id >>"
+            echo $MIGRATION_ID
+            SUCCESS=$(curl --insecure --request GET  "https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/${MIGRATION_ID}")
             # Logic for reverting the database state
             if (( $SUCCESS == 1 ));
             then
@@ -126,6 +128,8 @@ jobs:
             cd backend
             npm run ci
             npm run build
+            # Revert the last migration
+            npm run migration:revert
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build-{{ checksum "backend/package-lock.json" }}
@@ -306,7 +310,8 @@ jobs:
                 # If you are using memstash.io, generate the token "7933fe63-4687-4fa1-8426-aa25aa1730ec" on the website
                 # curl -H "Content-Type: text/plain" -H "token: 7933fe63-4687-4fa1-8426-aa25aa1730ec" --request PUT --data "1" https://api.memstash.io/values/migration_${CIRCLE_WORKFLOW_ID:0:7}
                 # If you are using kvdb.io, generate the bucket ID "Af7hn2aPN5kPEE9mtuorgH" in your local terminal first
-                curl https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+                MIGRATION_ID="migration_${CIRCLE_WORKFLOW_ID:0:7}"
+                curl https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/${MIGRATION_ID} -d '1'
             fi
 
      # Here's where you will add some code to rollback on failure
