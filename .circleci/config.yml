@@ -310,7 +310,7 @@ jobs:
                 # curl -H "Content-Type: text/plain" -H "token: 7933fe63-4687-4fa1-8426-aa25aa1730ec" --request PUT --data "1" https://api.memstash.io/values/migration_${CIRCLE_WORKFLOW_ID:0:7}
                 # If you are using kvdb.io, generate the bucket ID "Af7hn2aPN5kPEE9mtuorgH" in your local terminal first
                 MIGRATION_ID="migration_${CIRCLE_WORKFLOW_ID:0:7}"
-                curl https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/${MIGRATION_ID} -d '1'
+                curl -X POST https://kvdb.io/Af7hn2aPN5kPEE9mtuorgH/${MIGRATION_ID} -d '1'
             fi
 
      # Here's where you will add some code to rollback on failure
@@ -451,8 +451,8 @@ jobs:
                 echo "Frontend smoke test failed" && exit 1
             fi
       # Here's where you will add some code to rollback on failure
-      - destroy-environment
-      - revert-migrations
+      # - destroy-environment
+      # - revert-migrations
 
   cloudfront-update:
     docker:
