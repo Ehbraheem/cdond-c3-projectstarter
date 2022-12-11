@@ -127,6 +127,10 @@ jobs:
             cd backend
             npm run ci
             npm run build
+            # Revert the last migration
+            npm run migrations:revert
+            npm run migrations:revert
+            npm run migrations:revert
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build-{{ checksum "backend/package-lock.json" }}
