@@ -8,14 +8,5 @@
     - ansible_python_interpreter: /usr/bin/python3
     - ansible_host_key_checking: false
     - ansible_stdout_callback: yaml
-
-  # pre_tasks:
-  #   - name: "Create artifact directory"
-  #     file:
-  #       path: /home/ubuntu/artifact
-  #       state: directory
-  #       mode: 0755
-  #       owner: ubuntu
-  #       group: ubuntu
   roles:
     - deploy
