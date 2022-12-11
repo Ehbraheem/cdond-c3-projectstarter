@@ -412,15 +412,16 @@ jobs:
   smoke-test:
     docker:
       # Lightweight Docker image
-      - image: cimg/aws:2022.11
+     - image: cimg/node:13.14.0
     steps:
       # Checkout code from git
       - checkout
       - run:
           name: Install dependencies
           command: |
-            # your code here
-            curl --version
+            # Your code here
+            sudo apt update -y
+            sudo apt install awscli -y
       - run:
           name: Get backend url
           command: |
@@ -441,6 +442,7 @@ jobs:
             echo "BACKEND_IP = ${BACKEND_IP}"
             export API_URL="http://${BACKEND_IP}:3030/api/status"
             echo "${API_URL}"
+
             if curl ${API_URL} | grep "ok"
             then
                 echo "Backend smoke test passed"
