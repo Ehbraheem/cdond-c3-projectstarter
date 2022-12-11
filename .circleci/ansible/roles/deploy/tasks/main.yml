@@ -15,7 +15,7 @@
     cd ~/app
 
     pm2 stop default
-    pm2 start
+    pm2 start npm -- start
 
 - name: "Check Application"
   shell: |
