@@ -20,6 +20,7 @@
 - name: "Check Application"
   shell: |
     pm2 status
+    printenv
   register: server_setup
   changed_when: false
 
