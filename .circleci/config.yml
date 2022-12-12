@@ -544,8 +544,7 @@ workflows:
           filters:
             branches:
               only:
-                - 'feature/*'
-                - feature/cicd
+                - master
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
