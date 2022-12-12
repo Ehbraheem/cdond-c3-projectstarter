@@ -503,9 +503,11 @@ jobs:
             export STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
                     --stack-status-filter CREATE_COMPLETE --no-paginate --output text))
             echo Stack names: "${STACKS[@]}"
+            echo OldWorkflowID="${OldWorkflowID}" >> $BASH_ENV
       - run:
           name: Remove old stacks and files
           command: |
+            echo "OldWorkflowID value: ${OldWorkflowID}"
             if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
             then
               echo '------------------Delete Confirmed------------------'
