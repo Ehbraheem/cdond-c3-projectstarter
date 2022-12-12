@@ -15,8 +15,13 @@ describe('Update Employee Validator', () => {
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeAddress(params.employeeId, params.address,
-        params.country, params.region, params.city);
+      const updateEmployee = new UpdateEmployeeAddress(
+        params.employeeId,
+        params.address,
+        params.country,
+        params.region,
+        params.city,
+      );
       const result = await updateEmployeeValidator.validate(updateEmployee);
 
       // Assert

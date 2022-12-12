@@ -9,10 +9,13 @@ describe('Update Employee Validator', () => {
       const params = {
         employeeId: 10,
         effectiveDate: '2008-09-15T15:53:00',
-        };
+      };
 
       // Act
-      const updateEmployee = new UpdateEmployeeEffectiveDate(params.employeeId, params.effectiveDate);
+      const updateEmployee = new UpdateEmployeeEffectiveDate(
+        params.employeeId,
+        params.effectiveDate,
+      );
       const result = await updateEmployeeValidator.validate(updateEmployee);
 
       // Assert

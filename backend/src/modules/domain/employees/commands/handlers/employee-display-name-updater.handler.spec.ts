@@ -23,7 +23,10 @@ describe('Employee Display Name Updater', () => {
         displayName: 'Test display',
       };
 
-      const updateEmployee = new UpdateEmployeeDisplayName(params.employeeId, params.displayName);
+      const updateEmployee = new UpdateEmployeeDisplayName(
+        params.employeeId,
+        params.displayName,
+      );
 
       // Act
       await handler.handle(updateEmployee);

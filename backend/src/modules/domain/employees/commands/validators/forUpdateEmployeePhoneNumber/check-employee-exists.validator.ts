@@ -7,10 +7,13 @@ import { EmployeeRepository } from '../../../repositories/employees.repository';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class CheckEmployeePhoneNumberExists implements ICommandValidator<UpdateEmployeePhoneNumber> {
+export class CheckEmployeePhoneNumberExists
+  implements ICommandValidator<UpdateEmployeePhoneNumber> {
   constructor(private readonly employeeRepository: EmployeeRepository) {}
 
-  async validate(command: UpdateEmployeePhoneNumber): Promise<IValidationResult> {
+  async validate(
+    command: UpdateEmployeePhoneNumber,
+  ): Promise<IValidationResult> {
     const queryResult = await this.employeeRepository
       .where({ id: command.employeeId })
       .get();

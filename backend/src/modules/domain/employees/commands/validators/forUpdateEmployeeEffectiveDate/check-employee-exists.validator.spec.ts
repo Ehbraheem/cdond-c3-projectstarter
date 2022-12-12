@@ -25,7 +25,10 @@ describe('Check if employee exists', () => {
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeEffectiveDate(params.employeeId, params.effectiveDate);
+      const updateEmployee = new UpdateEmployeeEffectiveDate(
+        params.employeeId,
+        params.effectiveDate,
+      );
       const result = await employeeValidator.validate(updateEmployee);
 
       // Assert

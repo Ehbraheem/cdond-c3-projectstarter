@@ -10,9 +10,9 @@ export class CheckUpdateBirthDatePropertiesValue extends JoiCommandValidator<
     return joi.object({
       employeeId: joi.number().required(),
       birthdate: joi
-      .string()
-      .isoDate()
-      .required(),
+        .string()
+        .isoDate()
+        .required(),
     });
   }
 }

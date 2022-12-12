@@ -7,21 +7,21 @@ import { EmployeeRepository } from '../../repositories/employees.repository';
 
 @CommandHandler(UpdateEmployeeEffectiveDate)
 @Injectable()
-export class EmployeeEffectiveDateUpdater extends BaseCommandHandler<UpdateEmployeeEffectiveDate, void> {
+export class EmployeeEffectiveDateUpdater extends BaseCommandHandler<
+  UpdateEmployeeEffectiveDate,
+  void
+> {
   constructor(private readonly employeeRepository: EmployeeRepository) {
     super();
   }
   async handle(command: UpdateEmployeeEffectiveDate): Promise<void> {
-    const {
-      employeeId,
-      effectiveDate
-    } = command;
+    const { employeeId, effectiveDate } = command;
 
     const employee = await this.employeeRepository.findById(employeeId);
 
     employee.effectiveDate = moment(effectiveDate)
-    .utc()
-    .format();
+      .utc()
+      .format();
 
     await this.employeeRepository.save(employee);
   }

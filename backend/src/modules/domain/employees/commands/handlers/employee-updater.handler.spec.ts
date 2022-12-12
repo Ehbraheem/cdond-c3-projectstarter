@@ -41,12 +41,28 @@ describe('Employee Updater', () => {
         middleName: 'test',
       };
 
-      const updateEmployee = new UpdateEmployee(params.employeeId, params.firstName, params.middleName,
-        params.lastName, params.secondLastName, params.displayName, params.email,
-        params.personalEmail, params.birthdate, params.address,
-        params.phoneNumber, params.bankName, params.accountNumber,
-        params.tags, params.country, params.region, params.city, params.salary,
-        params.effectiveDate, params.salaryType);
+      const updateEmployee = new UpdateEmployee(
+        params.employeeId,
+        params.firstName,
+        params.middleName,
+        params.lastName,
+        params.secondLastName,
+        params.displayName,
+        params.email,
+        params.personalEmail,
+        params.birthdate,
+        params.address,
+        params.phoneNumber,
+        params.bankName,
+        params.accountNumber,
+        params.tags,
+        params.country,
+        params.region,
+        params.city,
+        params.salary,
+        params.effectiveDate,
+        params.salaryType,
+      );
 
       // Act
       await handler.handle(updateEmployee);

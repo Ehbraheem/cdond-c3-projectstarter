@@ -23,7 +23,10 @@ describe('Employee Effective Date Updater', () => {
         effectiveDate: '2008-09-15T15:53:00',
       };
 
-      const updateEmployee = new UpdateEmployeeEffectiveDate(params.employeeId, params.effectiveDate);
+      const updateEmployee = new UpdateEmployeeEffectiveDate(
+        params.employeeId,
+        params.effectiveDate,
+      );
 
       // Act
       await handler.handle(updateEmployee);

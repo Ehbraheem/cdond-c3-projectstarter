@@ -20,10 +20,13 @@ describe('Employee Phone Number Updater', () => {
 
       const params = {
         employeeId: 100,
-        phoneNumber: '50494621230'
+        phoneNumber: '50494621230',
       };
 
-      const updateEmployee = new UpdateEmployeePhoneNumber(params.employeeId, params.phoneNumber);
+      const updateEmployee = new UpdateEmployeePhoneNumber(
+        params.employeeId,
+        params.phoneNumber,
+      );
 
       // Act
       await handler.handle(updateEmployee);

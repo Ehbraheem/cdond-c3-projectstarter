@@ -21,11 +21,14 @@ describe('Check if employee exists', () => {
 
       const params = {
         employeeId: 100,
-        birthdate: '2008-09-15T15:53:00'
+        birthdate: '2008-09-15T15:53:00',
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeBirthdate(params.employeeId, params.birthdate);
+      const updateEmployee = new UpdateEmployeeBirthdate(
+        params.employeeId,
+        params.birthdate,
+      );
       const result = await employeeValidator.validate(updateEmployee);
 
       // Assert

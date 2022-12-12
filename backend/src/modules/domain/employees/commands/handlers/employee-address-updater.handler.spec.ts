@@ -26,8 +26,13 @@ describe('Employee Address Updater', () => {
         region: 'Cortes',
       };
 
-      const updateEmployee = new UpdateEmployeeAddress(params.employeeId, params.address,
-        params.country, params.region, params.city);
+      const updateEmployee = new UpdateEmployeeAddress(
+        params.employeeId,
+        params.address,
+        params.country,
+        params.region,
+        params.city,
+      );
 
       // Act
       await handler.handle(updateEmployee);

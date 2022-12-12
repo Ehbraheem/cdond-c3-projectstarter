@@ -20,10 +20,13 @@ describe('Employee Tags Updater', () => {
 
       const params = {
         employeeId: 100,
-        tags: 'Developer'
+        tags: 'Developer',
       };
 
-      const updateEmployee = new UpdateEmployeeTags(params.employeeId, params.tags);
+      const updateEmployee = new UpdateEmployeeTags(
+        params.employeeId,
+        params.tags,
+      );
 
       // Act
       await handler.handle(updateEmployee);

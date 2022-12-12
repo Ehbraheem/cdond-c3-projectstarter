@@ -10,9 +10,9 @@ export class CheckUpdateEffectiveDatePropertiesValue extends JoiCommandValidator
     return joi.object({
       employeeId: joi.number().required(),
       effectiveDate: joi
-      .string()
-      .isoDate()
-      .required(),
+        .string()
+        .isoDate()
+        .required(),
     });
   }
 }

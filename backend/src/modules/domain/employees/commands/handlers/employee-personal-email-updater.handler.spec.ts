@@ -23,7 +23,10 @@ describe('Employee Personal Email Updater', () => {
         personalEmail: 'jimmybanegas93@gmail.com',
       };
 
-      const updateEmployee = new UpdateEmployeePersonalEmail(params.employeeId, params.personalEmail);
+      const updateEmployee = new UpdateEmployeePersonalEmail(
+        params.employeeId,
+        params.personalEmail,
+      );
 
       // Act
       await handler.handle(updateEmployee);

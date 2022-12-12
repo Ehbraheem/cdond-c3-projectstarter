@@ -1,0 +1,24 @@
+---
+- name: "Install nodejs and npm"
+  become: yes
+  apt:
+    name: ["nodejs", "npm"]
+    state: latest
+    update_cache: yes
+
+- name: "Install pm2"
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+
+- name: "Check installations"
+  shell: |
+    python --version
+    node -v
+    npm -v
+    pm2 -v
+  register: server_setup
+  changed_when: false

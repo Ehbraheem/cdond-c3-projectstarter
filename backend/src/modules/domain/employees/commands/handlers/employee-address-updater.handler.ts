@@ -6,18 +6,15 @@ import { EmployeeRepository } from '../../repositories/employees.repository';
 
 @CommandHandler(UpdateEmployeeAddress)
 @Injectable()
-export class EmployeeAddressUpdater extends BaseCommandHandler<UpdateEmployeeAddress, void> {
+export class EmployeeAddressUpdater extends BaseCommandHandler<
+  UpdateEmployeeAddress,
+  void
+> {
   constructor(private readonly employeeRepository: EmployeeRepository) {
     super();
   }
   async handle(command: UpdateEmployeeAddress): Promise<void> {
-    const {
-      employeeId,
-      address,
-      country,
-      region,
-      city
-    } = command;
+    const { employeeId, address, country, region, city } = command;
 
     const employee = await this.employeeRepository.findById(employeeId);
 

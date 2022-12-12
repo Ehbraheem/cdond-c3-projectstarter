@@ -1,4 +1,4 @@
-import { UpdateEmployeeSalary } from '../../update-employee-salary.command'
+import { UpdateEmployeeSalary } from '../../update-employee-salary.command';
 import { EmployeeRepository } from '../../../repositories/employees.repository';
 import { CheckEmployeeSalaryExists } from './check-employee-exists.validator';
 
@@ -25,7 +25,10 @@ describe('Check if employee exists', () => {
       };
 
       // Act
-      const updateEmployee = new UpdateEmployeeSalary(params.employeeId, params.salary);
+      const updateEmployee = new UpdateEmployeeSalary(
+        params.employeeId,
+        params.salary,
+      );
       const result = await employeeValidator.validate(updateEmployee);
 
       // Assert

@@ -23,7 +23,10 @@ describe('Employee Birthdate Updater', () => {
         birthdate: '2008-09-15T15:53:00',
       };
 
-      const updateEmployee = new UpdateEmployeeBirthdate(params.employeeId, params.birthdate);
+      const updateEmployee = new UpdateEmployeeBirthdate(
+        params.employeeId,
+        params.birthdate,
+      );
 
       // Act
       await handler.handle(updateEmployee);
