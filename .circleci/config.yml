@@ -494,7 +494,7 @@ jobs:
       - persist_to_workspace:
           root: ~/
           paths:
-            - old_workflow_id.txt
+            - project/old_workflow_id.txt
       # Here's where you will add some code to rollback on failure
       - destroy-environment
       - revert-migrations
