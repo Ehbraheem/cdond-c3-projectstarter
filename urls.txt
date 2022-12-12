@@ -1,2 +1,6 @@
 [URL01] https://github.com/Ehbraheem/cdond-c3-projectstarter
-[URL02]
+[URL02] http://udapeople-679365b.s3-website-us-east-1.amazonaws.com
+
+
+[CDN] http://d1c0tmcr1s5gok.cloudfront.net/#/employees
+[Monitoring Dashboard] http://ec2-52-91-175-124.compute-1.amazonaws.com:9090/
