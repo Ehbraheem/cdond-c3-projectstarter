@@ -508,13 +508,11 @@ jobs:
           name: Remove old stacks and files
           command: |
             echo "OldWorkflowID value: ${OldWorkflowID}"
-            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
+            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" =~ "${OldWorkflowID}" ]]
             then
               echo '------------------Delete Confirmed------------------'
-              BUCKET_ID="udapeople-${OldWorkflowID}"
-              echo "BUCKET_ID: $BUCKET_ID"
-              aws s3 rm "s3://${BUCKET_ID}" --recursive
-              aws s3api delete-bucket --bucket $BUCKET_ID
+
+              aws s3 rm "s3://udapeople-${OldWorkflowID}" --recursive
               aws cloudformation delete-stack --stack-name "udapeople-backend-${OldWorkflowID}"
               aws cloudformation delete-stack --stack-name "udapeople-frontend-${OldWorkflowID}"
             else
