@@ -1,5 +1,5 @@
 stacks = `aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
-  --stack-status-filter DELETE_FAILED \
+  --stack-status-filter CREATE_COMPLETE \
   --no-paginate --output text --profile udacity`
 
 stacks = stacks.chomp.split("\t")
